@@ -1,115 +1,115 @@
 # AI.me - Graph-Based Metadata Infrastructure for Agentic AI
 
-Infraestructura de metadata basada en grafos que convierte documentación y datos en grafos semánticos versionados, aplica razonamiento para validar subgrafos aplicables, e integra con servicios LLM para generar respuestas grounded y auditables.
+Graph-based metadata infrastructure that converts documentation and data into versioned semantic graphs, applies reasoning to validate applicable subgraphs, and integrates with LLM services to generate grounded and auditable responses.
 
-## 🎯 Visión
+## 🎯 Vision
 
-Hacer que los agentes autónomos sean fiables, auditables y alineados con la realidad mediante una capa de conocimiento y metadata que asegure precisión, validez temporal y trazabilidad.
+Making autonomous agents reliable, auditable, and aligned with reality through a knowledge and metadata layer that ensures precision, temporal validity, and traceability.
 
-## 🏗️ Arquitectura
+## 🏗️ Architecture
 
-- **Graph Processing**: Conversión de documentación y datos en grafos semánticos versionados
-- **Reasoning Engine**: Motor de razonamiento que filtra y valida subgrafos aplicables
-- **LLM Integration**: Integración con AWS Bedrock y otros servicios LLM
-- **Versioning System**: Sistema de versionado para trazabilidad temporal
-- **Audit Trail**: Registro completo de cada paso para auditoría y análisis
-- **API Layer**: API RESTful para integración con sistemas externos
+- **Graph Processing**: Conversion of documentation and data into versioned semantic graphs
+- **Reasoning Engine**: Reasoning engine that filters and validates applicable subgraphs
+- **LLM Integration**: Integration with AWS Bedrock and other LLM services
+- **Versioning System**: Versioning system for temporal traceability
+- **Audit Trail**: Complete logging of every step for auditing and analysis
+- **API Layer**: RESTful API for integration with external systems
 
-## 🚀 Inicio Rápido
+## 🚀 Quick Start
 
-### Prerrequisitos
+### Prerequisites
 
 - Python 3.11+
-- Docker y Docker Compose (opcional)
-- AWS Account (para Bedrock y Neptune)
+- Docker and Docker Compose (optional)
+- AWS Account (for Bedrock and Neptune)
 
-### Instalación
+### Installation
 
 ```bash
-# Clonar el repositorio
+# Clone the repository
 git clone <repository-url>
 cd ikl
 
-# Crear entorno virtual
+# Create virtual environment
 python -m venv venv
-source venv/bin/activate  # En Windows: venv\Scripts\activate
+source venv/bin/activate  # On Windows: venv\Scripts\activate
 
-# Instalar dependencias
+# Install dependencies
 pip install -r requirements.txt
 
-# Configurar variables de entorno
+# Configure environment variables
 cp .env.example .env
-# Editar .env con tus credenciales AWS y configuraciones
+# Edit .env with your AWS credentials and configurations
 ```
 
-### Uso Básico
+### Basic Usage
 
 ```bash
-# Ejecutar el servidor API
+# Run the API server
 python -m src.api.main
 
-# O usando Docker
+# Or using Docker
 docker-compose up
 ```
 
-## 📁 Estructura del Proyecto
+## 📁 Project Structure
 
 ```
 ikl/
 ├── src/
-│   ├── core/              # Módulos core del sistema
-│   │   ├── graph/         # Procesamiento de grafos
-│   │   ├── reasoning/     # Motor de razonamiento
-│   │   ├── versioning/    # Sistema de versionado
-│   │   └── audit/         # Sistema de auditoría
-│   ├── integrations/      # Integraciones externas
+│   ├── core/              # Core system modules
+│   │   ├── graph/         # Graph processing
+│   │   ├── reasoning/     # Reasoning engine
+│   │   ├── versioning/    # Versioning system
+│   │   └── audit/         # Audit system
+│   ├── integrations/      # External integrations
 │   │   ├── aws/           # AWS Bedrock, Neptune
-│   │   └── llm/           # Abstracciones LLM
-│   ├── api/               # API REST
-│   ├── services/          # Servicios de negocio
-│   └── utils/             # Utilidades
+│   │   └── llm/           # LLM abstractions
+│   ├── api/               # REST API
+│   ├── services/          # Business services
+│   └── utils/             # Utilities
 ├── tests/                 # Tests
-├── docs/                  # Documentación
-├── docker/                # Configuraciones Docker
-└── scripts/               # Scripts de utilidad
+├── docs/                  # Documentation
+├── docker/                # Docker configurations
+└── scripts/               # Utility scripts
 ```
 
-## 🔧 Configuración
+## 🔧 Configuration
 
-Ver `.env.example` para todas las variables de entorno disponibles.
+See `.env.example` for all available environment variables.
 
-### Variables Principales
+### Main Variables
 
-- `AWS_REGION`: Región de AWS
-- `AWS_ACCESS_KEY_ID`: Access Key de AWS
-- `AWS_SECRET_ACCESS_KEY`: Secret Key de AWS
-- `NEPTUNE_ENDPOINT`: Endpoint de Neptune
-- `BEDROCK_MODEL_ID`: Model ID de Bedrock a usar
-- `LOG_LEVEL`: Nivel de logging
+- `AWS_REGION`: AWS region
+- `AWS_ACCESS_KEY_ID`: AWS access key
+- `AWS_SECRET_ACCESS_KEY`: AWS secret key
+- `NEPTUNE_ENDPOINT`: Neptune endpoint
+- `BEDROCK_MODEL_ID`: Bedrock model ID to use
+- `LOG_LEVEL`: Logging level
 
 ## 🧪 Testing
 
 ```bash
-# Ejecutar todos los tests
+# Run all tests
 pytest
 
-# Con cobertura
+# With coverage
 pytest --cov=src --cov-report=html
 ```
 
-## 📚 Documentación
+## 📚 Documentation
 
-La documentación completa está disponible en `docs/`.
+Full documentation is available in `docs/`.
 
-## 🤝 Contribución
+## 🤝 Contributing
 
-Este es un proyecto privado. Para contribuciones, contactar al equipo.
+This is a private project. For contributions, please contact the team.
 
-## 📄 Licencia
+## 📄 License
 
-Proprietary - Todos los derechos reservados
+Proprietary - All rights reserved
 
-## 🔗 Enlaces
+## 🔗 Links
 
 - [AWS Bedrock](https://aws.amazon.com/bedrock/)
 - [AWS Neptune](https://aws.amazon.com/neptune/)

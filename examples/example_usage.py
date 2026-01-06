@@ -59,10 +59,10 @@ def main():
     document_result = graph_service.process_document(
         document_id="example-doc-1",
         content="""
-        La inteligencia artificial (IA) es una rama de la informática que se enfoca
-        en crear sistemas capaces de realizar tareas que normalmente requieren
-        inteligencia humana. Los agentes autónomos son sistemas de IA que pueden
-        operar de manera independiente para lograr objetivos específicos.
+        Artificial Intelligence (AI) is a branch of computer science that focuses
+        on creating systems capable of performing tasks that normally require
+        human intelligence. Autonomous agents are AI systems that can
+        operate independently to achieve specific objectives.
         """,
         metadata={
             "source": "example",
@@ -77,7 +77,7 @@ def main():
     if llm_service:
         print("\n❓ Querying graph...")
         query_result = graph_service.query(
-            query="¿Qué es la inteligencia artificial?",
+            query="What is artificial intelligence?",
             session_id="example-session-1",
         )
         print(f"✅ Answer: {query_result['answer']}")
@@ -95,4 +95,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

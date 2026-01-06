@@ -1,139 +1,138 @@
-# Estructura del Proyecto
+# Project Structure
 
 ```
 ikl/
-├── src/                          # Código fuente principal
+├── src/                          # Main source code
 │   ├── __init__.py
-│   ├── api/                      # Capa API REST
+│   ├── api/                      # REST API layer
 │   │   ├── __init__.py
 │   │   └── main.py              # FastAPI application
-│   ├── core/                     # Módulos core del sistema
+│   ├── core/                     # Core system modules
 │   │   ├── __init__.py
-│   │   ├── graph/                # Procesamiento de grafos
+│   │   ├── graph/                # Graph processing
 │   │   │   ├── __init__.py
 │   │   │   └── processor.py     # GraphProcessor
-│   │   ├── reasoning/            # Motor de razonamiento
+│   │   ├── reasoning/            # Reasoning engine
 │   │   │   ├── __init__.py
 │   │   │   └── engine.py         # ReasoningEngine
-│   │   ├── versioning/           # Sistema de versionado
+│   │   ├── versioning/           # Versioning system
 │   │   │   ├── __init__.py
 │   │   │   └── manager.py        # VersionManager
-│   │   └── audit/                # Sistema de auditoría
+│   │   └── audit/                # Audit system
 │   │       ├── __init__.py
 │   │       └── logger.py         # AuditLogger
-│   ├── integrations/             # Integraciones externas
+│   ├── integrations/             # External integrations
 │   │   ├── __init__.py
-│   │   ├── aws/                  # Integraciones AWS
+│   │   ├── aws/                  # AWS integrations
 │   │   │   ├── __init__.py
-│   │   │   ├── bedrock_client.py # Cliente AWS Bedrock
-│   │   │   └── neptune_client.py # Cliente AWS Neptune
-│   │   └── llm/                  # Abstracciones LLM
+│   │   │   ├── bedrock_client.py # AWS Bedrock client
+│   │   │   └── neptune_client.py # AWS Neptune client
+│   │   └── llm/                  # LLM abstractions
 │   │       ├── __init__.py
 │   │       └── service.py        # LLMService abstraction
-│   ├── services/                 # Servicios de negocio
+│   ├── services/                 # Business services
 │   │   ├── __init__.py
-│   │   └── graph_service.py      # GraphService (orquestador)
-│   └── utils/                    # Utilidades
+│   │   └── graph_service.py      # GraphService (orchestrator)
+│   └── utils/                    # Utilities
 │       ├── __init__.py
-│       └── config.py             # Configuración
+│       └── config.py             # Configuration
 ├── tests/                        # Tests
 │   ├── __init__.py
 │   ├── test_graph_processor.py
 │   └── test_reasoning_engine.py
-├── docs/                         # Documentación
+├── docs/                         # Documentation
 │   ├── ARCHITECTURE.md
 │   └── QUICKSTART.md
-├── examples/                     # Ejemplos de uso
+├── examples/                     # Usage examples
 │   └── example_usage.py
-├── scripts/                      # Scripts de utilidad
+├── scripts/                      # Utility scripts
 │   ├── setup.sh
 │   └── run_tests.sh
-├── docker/                       # Configuraciones Docker
+├── docker/                       # Docker configurations
 │   └── Dockerfile
-├── .env.example                  # Template de variables de entorno
+├── .env.example                  # Environment variables template
 ├── .gitignore
 ├── .dockerignore
 ├── docker-compose.yml            # Docker Compose configuration
-├── Makefile                      # Comandos útiles
-├── pyproject.toml                # Configuración del proyecto
-├── requirements.txt              # Dependencias Python
-└── README.md                     # Documentación principal
+├── Makefile                      # Useful commands
+├── pyproject.toml                # Project configuration
+├── requirements.txt              # Python dependencies
+└── README.md                     # Main documentation
 ```
 
-## Componentes Clave
+## Key Components
 
 ### Core Modules (`src/core/`)
 
 1. **Graph Processing** (`graph/processor.py`)
-   - Convierte documentos en grafos semánticos
-   - Utiliza NetworkX y RDFLib
-   - Extracción de entidades y relaciones
+   - Converts documents into semantic graphs
+   - Uses NetworkX and RDFLib
+   - Entity and relationship extraction
 
 2. **Reasoning Engine** (`reasoning/engine.py`)
-   - Filtra y valida subgrafos aplicables
-   - Calcula scores de groundedness
-   - Validación de completitud y conectividad
+   - Filters and validates applicable subgraphs
+   - Calculates groundedness scores
+   - Completeness and connectivity validation
 
 3. **Versioning** (`versioning/manager.py`)
-   - Sistema de versionado temporal
-   - Trazabilidad de cambios
-   - Validación de validez temporal
+   - Temporal versioning system
+   - Change traceability
+   - Temporal validity validation
 
 4. **Audit Trail** (`audit/logger.py`)
-   - Registro completo de operaciones
-   - Trazabilidad para compliance
-   - Análisis y debugging
+   - Complete operation logging
+   - Traceability for compliance
+   - Analysis and debugging
 
 ### Integrations (`src/integrations/`)
 
 1. **AWS Bedrock** (`aws/bedrock_client.py`)
-   - Integración con modelos LLM de AWS
-   - Soporte para Claude, Titan, etc.
-   - System prompts y context injection
+   - Integration with AWS LLM models
+   - Support for Claude, Titan, etc.
+   - System prompts and context injection
 
 2. **AWS Neptune** (`aws/neptune_client.py`)
-   - Almacenamiento de grafos a escala
-   - Queries Gremlin
+   - Graph storage at scale
+   - Gremlin queries
    - IAM authentication
 
 3. **LLM Service** (`llm/service.py`)
-   - Abstracción sobre servicios LLM
-   - Factory pattern para múltiples proveedores
+   - Abstraction over LLM services
+   - Factory pattern for multiple providers
 
 ### Services (`src/services/`)
 
 1. **Graph Service** (`graph_service.py`)
-   - Orquesta todos los componentes
-   - Flujo end-to-end: documento → grafo → query → respuesta
-   - Integración con audit trail
+   - Orchestrates all components
+   - End-to-end flow: document → graph → query → response
+   - Integration with audit trail
 
 ### API (`src/api/`)
 
 1. **FastAPI Application** (`main.py`)
-   - REST API para procesamiento y queries
+   - REST API for processing and queries
    - Health checks
-   - Documentación automática (Swagger)
+   - Automatic documentation (Swagger)
 
-## Flujos Principales
+## Main Flows
 
-### Procesamiento de Documentos
+### Document Processing
 ```
-Documento → GraphProcessor → Grafo Semántico → VersionManager → AuditLogger
-```
-
-### Query y Respuesta
-```
-Query → ReasoningEngine (filtra) → ReasoningEngine (valida) → 
-LLM Service (genera) → AuditLogger (registra)
+Document → GraphProcessor → Semantic Graph → VersionManager → AuditLogger
 ```
 
-## Próximos Pasos de Desarrollo
+### Query and Response
+```
+Query → ReasoningEngine (filters) → ReasoningEngine (validates) → 
+LLM Service (generates) → AuditLogger (logs)
+```
 
-1. **NLP Integration**: Implementar extracción real de entidades con spaCy
-2. **Neptune Persistence**: Conectar con Neptune para almacenamiento persistente
-3. **Advanced Reasoning**: Reglas de validación más sofisticadas
-4. **Caching**: Implementar cache de subgrafos frecuentes
-5. **Authentication**: Agregar autenticación y autorización
-6. **Monitoring**: Integrar con CloudWatch, Prometheus, etc.
-7. **Batch Processing**: Soporte para procesamiento en lote
+## Next Development Steps
 
+1. **NLP Integration**: Implement real entity extraction with spaCy
+2. **Neptune Persistence**: Connect with Neptune for persistent storage
+3. **Advanced Reasoning**: More sophisticated validation rules
+4. **Caching**: Implement cache for frequent subgraphs
+5. **Authentication**: Add authentication and authorization
+6. **Monitoring**: Integrate with CloudWatch, Prometheus, etc.
+7. **Batch Processing**: Support for batch processing

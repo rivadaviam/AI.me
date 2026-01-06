@@ -2,83 +2,82 @@
 
 ## System Architecture
 
-AI.me es una infraestructura de metadata basada en grafos diseñada para hacer que los agentes autónomos sean fiables, auditables y alineados con la realidad.
+AI.me is a graph-based metadata infrastructure designed to make autonomous agents reliable, auditable, and aligned with reality.
 
-### Componentes Principales
+### Main Components
 
 #### 1. Graph Processing (`src/core/graph/`)
-- **GraphProcessor**: Convierte documentación y datos en grafos semánticos versionados
-- Utiliza NetworkX para representación de grafos
-- Soporta RDF para interoperabilidad semántica
+- **GraphProcessor**: Converts documentation and data into versioned semantic graphs
+- Uses NetworkX for graph representation
+- Supports RDF for semantic interoperability
 
 #### 2. Reasoning Engine (`src/core/reasoning/`)
-- **ReasoningEngine**: Motor de razonamiento que filtra y valida subgrafos aplicables
-- Calcula scores de groundedness
-- Valida completitud, conectividad y verificación de fuentes
+- **ReasoningEngine**: Reasoning engine that filters and validates applicable subgraphs
+- Calculates groundedness scores
+- Validates completeness, connectivity, and source verification
 
 #### 3. Versioning System (`src/core/versioning/`)
-- **VersionManager**: Sistema de versionado para trazabilidad temporal
-- Soporta versiones major, minor, patch y temporales
-- Valida validez temporal de versiones
+- **VersionManager**: Versioning system for temporal traceability
+- Supports major, minor, patch, and temporal versions
+- Validates temporal validity of versions
 
 #### 4. Audit Trail (`src/core/audit/`)
-- **AuditLogger**: Registro completo de todas las operaciones
-- Trazabilidad completa para compliance
-- Soporte para análisis y debugging
+- **AuditLogger**: Complete logging of all operations
+- Full traceability for compliance
+- Support for analysis and debugging
 
 #### 5. AWS Integrations (`src/integrations/aws/`)
-- **BedrockClient**: Integración con AWS Bedrock para LLM
-- **NeptuneClient**: Integración con AWS Neptune para almacenamiento de grafos
+- **BedrockClient**: Integration with AWS Bedrock for LLM
+- **NeptuneClient**: Integration with AWS Neptune for graph storage
 
 #### 6. LLM Service (`src/integrations/llm/`)
-- Abstracción sobre servicios LLM
-- Soporte para múltiples proveedores (Bedrock, OpenAI, etc.)
+- Abstraction over LLM services
+- Support for multiple providers (Bedrock, OpenAI, etc.)
 
 #### 7. API Layer (`src/api/`)
 - FastAPI REST API
-- Endpoints para procesamiento de documentos y queries
-- Health checks y monitoring
+- Endpoints for document processing and queries
+- Health checks and monitoring
 
 #### 8. Services (`src/services/`)
-- **GraphService**: Lógica de negocio que orquesta todos los componentes
-- Procesamiento end-to-end desde documentos hasta respuestas grounded
+- **GraphService**: Business logic that orchestrates all components
+- End-to-end processing from documents to grounded responses
 
-## Flujo de Datos
+## Data Flow
 
-### Procesamiento de Documentos
-1. Documento → GraphProcessor → Grafo Semántico
-2. VersionManager → Crea versión del grafo
-3. AuditLogger → Registra evento
+### Document Processing
+1. Document → GraphProcessor → Semantic Graph
+2. VersionManager → Creates graph version
+3. AuditLogger → Logs event
 
-### Query y Respuesta
-1. Query → ReasoningEngine → Filtra subgrafo relevante
-2. ReasoningEngine → Valida subgrafo (groundedness)
-3. Subgrafo → LLM Service → Genera respuesta grounded
-4. AuditLogger → Registra todo el proceso
+### Query and Response
+1. Query → ReasoningEngine → Filters relevant subgraph
+2. ReasoningEngine → Validates subgraph (groundedness)
+3. Subgraph → LLM Service → Generates grounded response
+4. AuditLogger → Logs entire process
 
-## Integraciones
+## Integrations
 
 ### AWS Bedrock
-- Modelos Claude, Titan, etc.
-- Configuración vía variables de entorno
-- Soporte para system prompts y context
+- Claude, Titan, and other models
+- Configuration via environment variables
+- Support for system prompts and context
 
 ### AWS Neptune
-- Almacenamiento de grafos a escala
-- Queries Gremlin
+- Graph storage at scale
+- Gremlin queries
 - IAM authentication
 
-## Escalabilidad
+## Scalability
 
-- Arquitectura modular y desacoplada
-- Preparado para horizontal scaling
-- Caching de subgrafos frecuentes
-- Async/await para operaciones I/O
+- Modular and decoupled architecture
+- Ready for horizontal scaling
+- Caching of frequent subgraphs
+- Async/await for I/O operations
 
-## Seguridad
+## Security
 
-- Audit trail completo
-- Versionado para trazabilidad
-- Validación de groundedness
-- API keys y authentication (a implementar)
-
+- Complete audit trail
+- Versioning for traceability
+- Groundedness validation
+- API keys and authentication (to be implemented)

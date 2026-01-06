@@ -1,84 +1,84 @@
 # Quick Start Guide
 
-## Prerrequisitos
+## Prerequisites
 
-- Python 3.11 o superior
-- AWS Account con acceso a Bedrock (y opcionalmente Neptune)
-- Docker y Docker Compose (opcional)
+- Python 3.11 or higher
+- AWS Account with access to Bedrock (and optionally Neptune)
+- Docker and Docker Compose (optional)
 
-## Instalación Rápida
+## Quick Installation
 
-### Opción 1: Setup Automático
+### Option 1: Automatic Setup
 
 ```bash
 chmod +x scripts/setup.sh
 ./scripts/setup.sh
 ```
 
-### Opción 2: Manual
+### Option 2: Manual
 
 ```bash
-# Crear entorno virtual
+# Create virtual environment
 python3 -m venv venv
-source venv/bin/activate  # En Windows: venv\Scripts\activate
+source venv/bin/activate  # On Windows: venv\Scripts\activate
 
-# Instalar dependencias
+# Install dependencies
 pip install -r requirements.txt
 pip install -e ".[dev]"
 
-# Configurar variables de entorno
+# Configure environment variables
 cp .env.example .env
-# Editar .env con tus credenciales
+# Edit .env with your credentials
 ```
 
-## Configuración
+## Configuration
 
-Edita el archivo `.env` con tus credenciales AWS:
+Edit the `.env` file with your AWS credentials:
 
 ```bash
 AWS_REGION=us-east-1
-AWS_ACCESS_KEY_ID=tu-access-key
-AWS_SECRET_ACCESS_KEY=tu-secret-key
+AWS_ACCESS_KEY_ID=your-access-key
+AWS_SECRET_ACCESS_KEY=your-secret-key
 BEDROCK_MODEL_ID=anthropic.claude-v2
 ```
 
-## Ejecutar la Aplicación
+## Running the Application
 
-### Desarrollo Local
+### Local Development
 
 ```bash
-# Activar entorno virtual
+# Activate virtual environment
 source venv/bin/activate
 
-# Ejecutar servidor
+# Run server
 make run
-# O directamente:
+# Or directly:
 python -m src.api.main
 ```
 
-La API estará disponible en `http://localhost:8000`
+The API will be available at `http://localhost:8000`
 
 ### Docker
 
 ```bash
-# Construir y ejecutar
+# Build and run
 make docker-build
 make docker-up
 
-# Ver logs
+# View logs
 docker-compose logs -f
 ```
 
-## Uso de la API
+## API Usage
 
-### Procesar un Documento
+### Process a Document
 
 ```bash
 curl -X POST "http://localhost:8000/documents" \
   -H "Content-Type: application/json" \
   -d '{
     "document_id": "doc-1",
-    "content": "Este es un documento de prueba sobre inteligencia artificial.",
+    "content": "This is a test document about artificial intelligence.",
     "metadata": {
       "source": "test",
       "author": "AI.me Team"
@@ -86,35 +86,35 @@ curl -X POST "http://localhost:8000/documents" \
   }'
 ```
 
-### Hacer una Query
+### Make a Query
 
 ```bash
 curl -X POST "http://localhost:8000/query" \
   -H "Content-Type: application/json" \
   -d '{
-    "query": "¿Qué es la inteligencia artificial?",
+    "query": "What is artificial intelligence?",
     "filters": {}
   }'
 ```
 
-### Ver Documentación de la API
+### View API Documentation
 
-Visita `http://localhost:8000/docs` para la documentación interactiva de Swagger.
+Visit `http://localhost:8000/docs` for interactive Swagger documentation.
 
 ## Testing
 
 ```bash
-# Ejecutar todos los tests
+# Run all tests
 make test
 
-# O con el script
+# Or with the script
 chmod +x scripts/run_tests.sh
 ./scripts/run_tests.sh
 ```
 
-## Desarrollo
+## Development
 
-### Formatear Código
+### Format Code
 
 ```bash
 make format
@@ -126,24 +126,23 @@ make format
 make lint
 ```
 
-## Próximos Pasos
+## Next Steps
 
-1. Integrar con AWS Neptune para almacenamiento persistente de grafos
-2. Implementar extracción de entidades con NLP (spaCy, NER)
-3. Mejorar el motor de razonamiento con reglas más sofisticadas
-4. Agregar autenticación y autorización
-5. Implementar caching de subgrafos
+1. Integrate with AWS Neptune for persistent graph storage
+2. Implement entity extraction with NLP (spaCy, NER)
+3. Improve the reasoning engine with more sophisticated rules
+4. Add authentication and authorization
+5. Implement caching of subgraphs
 
 ## Troubleshooting
 
 ### Error: AWS Credentials not found
-- Verifica que `.env` tenga las credenciales correctas
-- O configura AWS CLI: `aws configure`
+- Verify that `.env` has the correct credentials
+- Or configure AWS CLI: `aws configure`
 
 ### Error: Bedrock model not available
-- Verifica que el modelo esté disponible en tu región
-- Lista modelos disponibles: `aws bedrock list-foundation-models`
+- Verify that the model is available in your region
+- List available models: `aws bedrock list-foundation-models`
 
 ### Error: Port already in use
-- Cambia el puerto en `.env`: `API_PORT=8001`
-
+- Change the port in `.env`: `API_PORT=8001`
