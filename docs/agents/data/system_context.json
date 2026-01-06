@@ -1,0 +1,44 @@
+{
+  "system_name": "AI.me",
+  "version": "0.1.0",
+  "description": "Graph-based metadata infrastructure for Agentic AI",
+  "components": {
+    "graph_processor": {
+      "location": "src/core/graph/processor.py",
+      "purpose": "Converts documents to semantic graphs"
+    },
+    "reasoning_engine": {
+      "location": "src/core/reasoning/engine.py",
+      "purpose": "Validates and filters subgraphs"
+    },
+    "version_manager": {
+      "location": "src/core/versioning/manager.py",
+      "purpose": "Manages graph versions"
+    },
+    "audit_logger": {
+      "location": "src/core/audit/logger.py",
+      "purpose": "Logs all operations"
+    },
+    "graph_service": {
+      "location": "src/services/graph_service.py",
+      "purpose": "Orchestrates components"
+    },
+    "llm_service": {
+      "location": "src/integrations/llm/service.py",
+      "purpose": "LLM integration abstraction"
+    }
+  },
+  "api_endpoints": {
+    "POST /documents": "Process document into graph",
+    "POST /query": "Query graph for response",
+    "GET /audit/{session_id}": "Get audit trace"
+  },
+  "key_concepts": [
+    "graph",
+    "subgraph",
+    "groundedness",
+    "versioning",
+    "audit_trail"
+  ]
+}
+

@@ -99,7 +99,44 @@ pytest --cov=src --cov-report=html
 
 ## 📚 Documentation
 
-Full documentation is available in `docs/`.
+Full documentation is available in `docs/`:
+
+### Technical Documentation
+- [Product Specification](docs/product/PRODUCT_SPEC.md)
+- [API Specification](docs/product/API_SPEC.md)
+- [Data Model](docs/product/DATA_MODEL.md)
+- [Integration Guide](docs/product/INTEGRATION_GUIDE.md)
+- [Deployment Guide](docs/product/DEPLOYMENT.md)
+- [System Architecture](docs/architecture/SYSTEM_ARCHITECTURE.md)
+- [Component Specifications](docs/architecture/COMPONENT_SPECS.md)
+- [Data Flow](docs/architecture/DATA_FLOW.md)
+- [Graph Model](docs/architecture/GRAPH_MODEL.md)
+- [Reasoning Engine](docs/architecture/REASONING_ENGINE.md)
+- [Versioning System](docs/architecture/VERSIONING_SYSTEM.md)
+
+### Development Guides
+- [Setup Guide](docs/development/SETUP_GUIDE.md)
+- [Coding Standards](docs/development/CODING_STANDARDS.md)
+- [Testing Guide](docs/development/TESTING_GUIDE.md)
+- [Contributing](docs/development/CONTRIBUTING.md)
+- [Troubleshooting](docs/development/TROUBLESHOOTING.md)
+
+### AI Agent Workflows
+- [Development Workflow](docs/workflows/development.md)
+- [Code Review Workflow](docs/workflows/review.md)
+- [Testing Workflow](docs/workflows/testing.md)
+
+### Business Documentation
+- [Business Model](docs/business/BUSINESS_MODEL.md)
+- [Market Analysis](docs/business/MARKET_ANALYSIS.md)
+- [Product Vision](docs/business/product/PRODUCT_VISION.md)
+- [Partnerships](docs/business/management/PARTNERSHIPS.md)
+
+### Agent Documentation
+- [Agent Context](docs/agents/AGENT_CONTEXT.md)
+- [Agent Capabilities](docs/agents/AGENT_CAPABILITIES.md)
+- [Agent Constraints](docs/agents/AGENT_CONSTRAINTS.md)
+- [Agent Examples](docs/agents/AGENT_EXAMPLES.md)
 
 ## 🤝 Contributing
 

@@ -1,0 +1,45 @@
+{
+  "components": {
+    "api": {
+      "dependencies": ["services"],
+      "provides": ["http_endpoints"]
+    },
+    "services": {
+      "dependencies": ["core", "integrations"],
+      "provides": ["business_logic"]
+    },
+    "core": {
+      "subcomponents": {
+        "graph": {
+          "dependencies": [],
+          "provides": ["graph_processing"]
+        },
+        "reasoning": {
+          "dependencies": ["graph"],
+          "provides": ["subgraph_validation"]
+        },
+        "versioning": {
+          "dependencies": [],
+          "provides": ["version_management"]
+        },
+        "audit": {
+          "dependencies": [],
+          "provides": ["audit_logging"]
+        }
+      }
+    },
+    "integrations": {
+      "subcomponents": {
+        "aws": {
+          "dependencies": [],
+          "provides": ["bedrock", "neptune"]
+        },
+        "llm": {
+          "dependencies": ["aws"],
+          "provides": ["llm_abstraction"]
+        }
+      }
+    }
+  }
+}
+

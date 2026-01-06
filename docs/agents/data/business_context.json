@@ -1,0 +1,34 @@
+{
+  "company": "AI.me",
+  "mission": "Make AI agents reliable, auditable, and aligned with reality",
+  "target_markets": [
+    "Enterprise Knowledge Management",
+    "Regulated Industries",
+    "Customer Support Automation"
+  ],
+  "value_proposition": "Graph-based metadata infrastructure that eliminates AI hallucinations",
+  "revenue_model": {
+    "saas": "Subscription-based pricing",
+    "api": "Pay-per-use",
+    "enterprise": "Custom deployments"
+  },
+  "competitive_advantages": [
+    "Graph-based reasoning",
+    "Validation engine",
+    "Audit trail",
+    "AWS integration"
+  ],
+  "key_metrics": {
+    "technical": [
+      "Query accuracy >95%",
+      "Response time <3s",
+      "Uptime >99.9%"
+    ],
+    "business": [
+      "User adoption",
+      "Query volume",
+      "Customer satisfaction"
+    ]
+  }
+}
+

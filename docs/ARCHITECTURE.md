@@ -81,3 +81,22 @@ AI.me is a graph-based metadata infrastructure designed to make autonomous agent
 - Versioning for traceability
 - Groundedness validation
 - API keys and authentication (to be implemented)
+
+## Detailed Documentation
+
+For more detailed architecture documentation, see:
+
+- [System Architecture](architecture/SYSTEM_ARCHITECTURE.md) - High-level system architecture
+- [Component Specifications](architecture/COMPONENT_SPECS.md) - Detailed component specs
+- [Data Flow](architecture/DATA_FLOW.md) - Data flow diagrams and descriptions
+- [Graph Model](architecture/GRAPH_MODEL.md) - Graph data model and ontology
+- [Reasoning Engine](architecture/REASONING_ENGINE.md) - Reasoning engine specification
+- [Versioning System](architecture/VERSIONING_SYSTEM.md) - Versioning system design
+
+## Technical Specifications
+
+- [Graph Processing Spec](specs/GRAPH_PROCESSING_SPEC.md) - Graph processing algorithms
+- [Reasoning Spec](specs/REASONING_SPEC.md) - Reasoning engine algorithms
+- [LLM Integration Spec](specs/LLM_INTEGRATION_SPEC.md) - LLM integration patterns
+- [Audit Spec](specs/AUDIT_SPEC.md) - Audit trail specification
+- [Security Spec](specs/SECURITY_SPEC.md) - Security requirements

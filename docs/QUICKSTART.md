@@ -134,6 +134,26 @@ make lint
 4. Add authentication and authorization
 5. Implement caching of subgraphs
 
+## Additional Resources
+
+### Development
+- [Setup Guide](development/SETUP_GUIDE.md) - Detailed development environment setup
+- [Coding Standards](development/CODING_STANDARDS.md) - Code style and standards
+- [Testing Guide](development/TESTING_GUIDE.md) - Testing strategies and examples
+- [Contributing](development/CONTRIBUTING.md) - Contribution guidelines
+- [Troubleshooting](development/TROUBLESHOOTING.md) - Common issues and solutions
+
+### Documentation
+- [Product Specification](product/PRODUCT_SPEC.md) - Complete product specification
+- [API Specification](product/API_SPEC.md) - Detailed API documentation
+- [Integration Guide](product/INTEGRATION_GUIDE.md) - Integration patterns
+- [Deployment Guide](product/DEPLOYMENT.md) - Deployment procedures
+
+### AI Agent Workflows
+- [Development Workflow](workflows/development.md) - AI agent development guide
+- [Code Review Workflow](workflows/review.md) - Automated review process
+- [Testing Workflow](workflows/testing.md) - Testing strategy and workflow
+
 ## Troubleshooting
 
 ### Error: AWS Credentials not found
